@@ -1,0 +1,35 @@
+
+
+.image-box-small{
+    height: 200px;
+    width: 180px;
+  }
+  .image-box-small img{
+    height: 100%;
+    width: 100%; 
+    border-radius: 2%;
+
+  }
+
+
+/* Large Img box */
+.image-box-large{
+    height: 520px;
+    width: 500px;
+  
+  }
+  .image-box-large img{
+    height: 100%;
+    width: 100%; 
+    border-radius: 2%;
+
+  }
+
+@media only screen and (max-width: 450px) {
+    /* For mobile phones: */
+    [class*="image-box-large"] {
+      width: 90%;
+      height: 380px;
+    }
+  
+}
