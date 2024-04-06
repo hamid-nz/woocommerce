@@ -19,8 +19,9 @@
   <nav>
     <div class="container">
       <ol>
-        <li><a href="/">Home</a></li>
-        <li>Services</li>
+        <li><a href="/">home</a></li>
+        <li><a href="{% url 'categorys' %}">category</a></li>
+        <li><a href="">{{category.name}}</a></li>
       </ol>
     </div>
   </nav>

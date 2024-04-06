@@ -1,0 +1,50 @@
+{% extends "app/base.html" %}
+{% block title %}   {% endblock %}
+{% block css %}{% endblock %}
+{% load static %}
+{% block content %}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+  <div class="page-header ">
+
+  </div>
+  <nav>
+    <div class="container">
+      <ol>
+        <li><a href="/">home</a></li>
+        <li><a href="{% url 'sign-in' %}">sign in</a></li>
+      </ol>
+    </div>
+  </nav>
+</div><!-- End Breadcrumbs -->
+<div class="container">
+
+<h2>Sign in Here!</h2>
+
+<div class="UserForm">
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" id="username" required>
+
+    <label for="" class="form-label">Password</label>
+    <input type="password" class="form-control" name="pass1" id="pass1" required>
+
+<p>Did'nt have an account??<a href="">Sign-Up</a> here!</p>    
+     <button type="submit" class="btn btn-outline-primary ">Submit</button>
+
+  </form>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

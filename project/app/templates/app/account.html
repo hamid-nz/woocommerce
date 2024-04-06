@@ -1,0 +1,29 @@
+{% extends "app/base.html" %}
+{% block title %}   {% endblock %}
+{% block css %}{% endblock %}
+{% load static %}
+{% block content %}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header ">
+  
+    </div>
+    <nav>
+      <div class="container">
+        <ol>
+          <li><a href="/">home</a></li>
+          <li><a href="{% url 'sign-up' %}">up</a></li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Breadcrumbs -->
+
+
+<h4>This is Profile Page of {{user.username}}. You're 
+signed in with {{user.email}}</h4>
+
+
+
+
+
+{% endblock %}

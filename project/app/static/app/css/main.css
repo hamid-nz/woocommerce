@@ -1666,7 +1666,7 @@ section {
   margin-bottom: 20px;
 }
 
-.service-details h3 {
+.service-details h4 {
   font-size: 28px;
   font-weight: 700;
   color: var(--color-secondary);

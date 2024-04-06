@@ -5,7 +5,7 @@ from autoslug import AutoSlugField
 
 class Category(models.Model):
     name= models.CharField(max_length= 100)
-    category_url= AutoSlugField(populate_from= 'name', unique= True )
+    category_url= AutoSlugField(populate_from= 'name', unique= True)
     discription= models.TextField(blank=True)
     category_image= models.ImageField(upload_to='images', blank=True)
 
@@ -13,10 +13,10 @@ class Category(models.Model):
         return self.name
 
 AVAILABILITY_CHOICES= {
-    'in_stock': 'In Stock',
-    'limited': 'Limited',
-    'on_order': 'On Order',
-    'not_available': 'Not Availale', #'Out of Stock',
+    'In Stock': 'in_stock',
+    'Limited': 'limited',
+    'On Order': 'on_order',
+    'Out of Stock': 'out_of_stock',
 }
 
 class Product(models.Model):

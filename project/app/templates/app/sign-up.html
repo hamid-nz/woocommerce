@@ -1,0 +1,58 @@
+{% extends "app/base.html" %}
+{% block title %}   {% endblock %}
+{% block css %}{% endblock %}
+{% load static %}
+{% block content %}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+  <div class="page-header ">
+
+  </div>
+  <nav>
+    <div class="container">
+      <ol>
+        <li><a href="/">home</a></li>
+        <li><a href="{% url 'sign-up' %}">sign up</a></li>
+      </ol>
+    </div>
+  </nav>
+</div><!-- End Breadcrumbs -->
+<div class="container">
+<h2>Sign Up Here</h2>
+
+<div class="UserForm">
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="" class="form-label">Your Name</label>
+    <input type="text" class="form-control" name="Name" id="Name">
+
+    <label for="" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" id="username">
+
+    <label for="" class="form-label">Email address</label>
+    <input type="email" class="form-control" name="email" id="email">
+
+    <label for="" class="form-label">Password</label>
+    <input type="password" class="form-control" name="pass1" id="pass1">
+
+    <label for="" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" name="pass2" id="pass2">
+    
+    {% comment %} <label for="" class="form-label">Upload Profile Picture</label>
+    <input type="file" class="form-control" name="profilepicture" name="profilepicture">
+    <input type="submit"> {% endcomment %}
+
+    <button type="submit" class="btn btn-outline-primary ">Submit</button>
+
+  </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

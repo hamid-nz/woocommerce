@@ -59,8 +59,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="/" class="active">Home</a></li>
-          <li><a href="services.html">Products</a></li>
-          <li class="dropdown"><a href="#"><span>Catagories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="{% url 'products' %}">Products</a></li>
+          <li class="dropdown"><a href="{% url 'categorys' %}"><span>Catagories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>              
               {% comment %} <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
