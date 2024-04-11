@@ -1,6 +1,6 @@
 
 
-.image-box-small{
+  .image-box-small{
     height: 200px;
     width: 180px;
   }
@@ -11,9 +11,21 @@
 
   }
 
+/*  Slider Img box */
+  .image-box-slider{
+    height: 400px;
+    width: 1100px;
+
+  }
+  .image-box-slider img{
+    height: 100%;
+    width: 100%; 
+    border-radius: 10px;
+
+  }
 
 /* Large Img box */
-.image-box-large{
+  .image-box-large{
     height: 520px;
     width: 500px;
   

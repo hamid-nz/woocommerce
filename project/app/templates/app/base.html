@@ -80,15 +80,15 @@
           </li>
           <li><a href="contact.html">Cart</a></li>
           <li><a href="contact.html">Wishlist</a></li>
-          <li class="dropdown"><a href="#"><span>Account</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a class="get-a-quote" href="get-a-quote.html">Login / Register</a>
             <ul>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Orders</a></li>
-              <li><a href="#">Change Password</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a href="{% url 'account' %}">Account</a></li>
+              <li><a href="{% url 'home' %}">Orders</a></li>
+              <li><a href="{% url 'sign-in' %}">Login</a></li>
+              <li><a href="{% url 'sign-out' %}">Logout</a></li>
             </ul>
           </li>
-          <li><a class="get-a-quote" href="get-a-quote.html">Login / Register</a></li>
+          <li></li>
 
         </ul>
       </nav><!-- .navbar -->

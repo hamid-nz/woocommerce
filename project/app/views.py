@@ -4,6 +4,7 @@ from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 from django.views.generic import(
     View,
     TemplateView,
@@ -14,8 +15,21 @@ from django.views.generic import(
     DetailView
     )
 
+
+
+
 class Home(TemplateView):
     template_name = 'app/index.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        categorys= Category.objects.all()
+        context["categorys"]= categorys
+        return context
+    
+    # def most_used_categories(request):
+    #     most_used_categories = Category.objects.annotate(num_products=Count('products')).order_by('-num_products')
+    #     return render(request, 'app/index.html', {'most_used_categories': most_used_categories})
+    
 
 class contact(TemplateView):
     template_name = 'app/contact.html'
@@ -42,7 +56,8 @@ class SingleProductView(DetailView):
 
 class CategoryView(TemplateView):
     model = Category
-    template_name = 'app/categorys.html'
+    template_name= 'app/categorys.html',
+
     # context_object_name = 'categorys'
 
     def get(self, request):
@@ -52,7 +67,7 @@ class CategoryView(TemplateView):
 
 class SingleCategoryView(DetailView):
     model= Category
-    template_name= 'app/single_category.html'
+    template_name= 'app/single_category.html',
     context_object_name = 'category'
 
     def get(self, request, category_url):
