@@ -16,8 +16,6 @@ from django.views.generic import(
     )
 
 
-
-
 class Home(TemplateView):
     template_name = 'app/index.html'
     def get_context_data(self, **kwargs):
