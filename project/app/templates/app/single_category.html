@@ -1,17 +1,18 @@
 {% extends "app/base.html" %}
-{% block title %}{% endblock %}
+{% block title %}{{cats.name}}{% endblock %}
 {% block css %}{% endblock %}
 {% load static %}
 {% block content %}
 
 <!-- ======= Breadcrumbs ======= -->
 <div class="breadcrumbs">
-    <div class="page-header d-flex align-items-center" style="background-image: url('{% static "app/img/page-header.jpg" %}');">
+    <!-- <div class="page-header d-flex align-items-center" style="background-image: url('{% static "app/img/page-header.jpg" %}');"> -->
+    <div class="page-header d-flex align-items-center">
       <div class="container position-relative">
         <div class="row d-flex justify-content-center">
           <div class="col-lg-6 text-center mb-3">
-            <h1 class="text-white" >{{category.name}}</h1>
-            <p>{{category.discription}}.</p>
+            <h1 class="text-white" >{{cats.name}}</h1>
+            <p>{{cats.discription}}.</p>
           </div>
         </div>
       </div>
@@ -21,7 +22,7 @@
       <ol>
         <li><a href="/">home</a></li>
         <li><a href="{% url 'categorys' %}">category</a></li>
-        <li><a href="">{{category.name}}</a></li>
+        <li><a href="">{{cats.name}}</a></li>
       </ol>
     </div>
   </nav>
@@ -30,7 +31,34 @@
 
 <main id="main">
 
-  
+ <!-- ======= Services Section ======= -->
+ <section id="service" class="services pt-0">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <span>The Products</span>
+      <h2>Explore our Products</h2>
+
+    </div>
+
+    <div class="row gy-4">
+    {% for p in products %}
+      <div class="col-lg-2 col-md-6 pt-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="image-box-small  shadow">
+          <img src="/media/{{p.product_image}}" alt="" class="img-fluid">
+          <h6 class="py-4" ><a href="{% url 'products' %}{{p.product_url}}" class="stretched-link">{{p.title}}</a></h6>
+        </div>
+        <p class="fw-bold text-danger">
+          {{p.price}} /- <span class="fw-light text-decoration-line-through" >{{p.actual_price}}</span>
+        </p>
+
+      </div>          
+    {% endfor %}
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
+
 
 </main><!-- End #main -->
 

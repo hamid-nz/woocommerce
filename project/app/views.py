@@ -15,7 +15,6 @@ from django.views.generic import(
     DetailView
     )
 
-
 class Home(TemplateView):
     template_name = 'app/index.html'
     def get_context_data(self, **kwargs):
@@ -47,31 +46,59 @@ class SingleProductView(DetailView):
     template_name= 'app/single_product.html'
     context_object_name = 'product'
 
-    def get(self, request, product_url):
+    def get(self, request, product_url) :
         product = get_object_or_404(Product, product_url= product_url)
-        return render(request, self.template_name, {'product': product})
-    
+        related_product= Product.objects.filter(category= product.category).exclude(pk= product.pk)
+        context={
+            'product': product,
+            'related_product': related_product
+        }
+        return render(request, self.template_name, context)
+
+    def add_to_cart(request, product_id):
+        product = get_object_or_404(Product, pk=product_id)
+        if request.method == 'POST':
+           quantity = int(request.POST.get('quantity', 1))
+        # Check if item is already in the cart
+           cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
+           if not created:
+            cart_item.quantity += quantity
+            cart_item.save()
+        return render (request, 'app/single_product.html')
+
+
 
 class CategoryView(TemplateView):
     model = Category
     template_name= 'app/categorys.html',
-
-    # context_object_name = 'categorys'
-
     def get(self, request):
         categorys = Category.objects.all()
         return render(request, self.template_name, {'categorys': categorys})
+    
+
+def get_product_by_category(request, category_url):
+    cats= Category.objects.get(category_url= category_url)
+    products= Product.objects.filter(category= cats)
+    context= { 'products': products, 'cats':cats}
+    return render(request, 'app/single_category.html', context )
+
+ 
 
 
-class SingleCategoryView(DetailView):
-    model= Category
-    template_name= 'app/single_category.html',
-    context_object_name = 'category'
+# def remove_from_cart(request, cart_item_id):
+#     cart_item = get_object_or_404(CartItem, pk=cart_item_id)
+#     if request.method == 'POST':
+#         cart_item.delete()
+#     return redirect('cart')
 
-    def get(self, request, category_url):
-        category = get_object_or_404(Category, category_url= category_url)
-        return render(request, self.template_name, {'category': category})
-        
+def cart(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    return render(request, 'cart.html', {'cart_items': cart_items})
+
+
+
+
+
 
 @login_required(login_url='sign-in')
 def add_job(request):

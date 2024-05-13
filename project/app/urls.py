@@ -7,7 +7,7 @@ urlpatterns=[
     path('product/', ProductsView.as_view(), name='products'),
     path('product/<slug:product_url>', SingleProductView.as_view(), name='single_product'),
     path('category/', CategoryView.as_view(), name='categorys'),
-    path('category/<slug:category_url>', SingleCategoryView.as_view(), name='single_category'),
+    path('category/<slug:category_url>', get_product_by_category, name='single_category'),
 #user pages
     path('sign-up/', sign_up, name='sign-up'),   
     path('sign-in/', sign_in, name='sign-in'),   

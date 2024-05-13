@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>{% block title %}   {% endblock %}</title>
+  <title>{% block title %}  {% endblock %} | WooCommerce Store</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,8 +37,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 <style>
-  {% block css %}
-  {% endblock %}
+
 </style>
 
 </head>
@@ -80,7 +79,7 @@
           </li>
           <li><a href="contact.html">Cart</a></li>
           <li><a href="contact.html">Wishlist</a></li>
-          <li class="dropdown"><a class="get-a-quote" href="get-a-quote.html">Login / Register</a>
+          <li class="dropdown"><a class="get-a-quote" href="{% url 'account' %}">Login / Register</a>
             <ul>
               <li><a href="{% url 'account' %}">Account</a></li>
               <li><a href="{% url 'home' %}">Orders</a></li>
@@ -108,8 +107,8 @@
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span>WoCommerce</span>
+          <a href="/" class="logo d-flex align-items-center">
+            <span>WooCommerce</span>
           </a>
           <p>The #1 platemform odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
           <div class="social-links d-flex mt-4">
